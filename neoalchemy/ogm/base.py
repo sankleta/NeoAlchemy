@@ -108,7 +108,6 @@ class OGMBase(object):
         if session is None:
             self.graph.query(create, **create.params)
         else:
-            self.log(create, create.params)
             session.run(str(create), parameters=create.params)
         return self
 
