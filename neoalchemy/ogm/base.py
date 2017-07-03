@@ -100,12 +100,16 @@ class OGMBase(object):
     def is_bound(self):
         return self.__node__.is_bound
 
-    def create(self):
+    def create(self, session=None):
         if self.graph is None:
             raise DetachedObjectError(self, action='create')
 
         create = Create(self.__node__)
-        self.graph.query(create, **create.params)
+        if session is None:
+            self.graph.query(create, **create.params)
+        else:
+            self.log(create, create.params)
+            session.run(str(create), parameters=create.params)
         return self
 
     def delete(self, detach=True, force=False):
