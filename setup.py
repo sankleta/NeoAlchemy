@@ -14,7 +14,7 @@ NeoAlchemy is built on top of the Neo4J Bolt driver and only supports Neo4J
 setup(
     name='neoalchemy',
     packages=find_packages(),
-    version='0.9.1',
+    version='0.9.2',
     license='MIT',
 
     description=('A microframework for Neo4J inspired by SQLAlchemy.'),
